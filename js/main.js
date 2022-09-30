@@ -109,11 +109,9 @@ $(document).ready(function () {
     });
 
     // gallery popup
-
-    baguetteBox.run('.gallery', {
-        animation: 'fadeIn',
-        noScrollbars: true
-    });
+    Fancybox.bind('[data-fancybox="gallery a"]', {
+        infinite: false
+      });
 
 
 });

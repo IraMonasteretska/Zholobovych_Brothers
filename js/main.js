@@ -110,7 +110,10 @@ $(document).ready(function () {
 
     // gallery popup
 
-    baguetteBox.run('.gallery');
+    baguetteBox.run('.gallery', {
+        animation: 'fadeIn',
+        noScrollbars: true
+    });
 
 
 });

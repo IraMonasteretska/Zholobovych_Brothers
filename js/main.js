@@ -27,12 +27,11 @@ $(document).ready(function () {
     // heroimage slider
     var swiper = new Swiper(".heroimage__slider", {
         effect: "fade",
-        speed: 900,
-        fadeEffect: {
-            crossFade: true
-        },
+        // fadeEffect: {
+        //     crossFade: true
+        // },
         autoplay: {
-            delay: 1300,
+            delay: 800,
         },
         pagination: {
             el: ".swiper-pagination",
@@ -57,6 +56,10 @@ $(document).ready(function () {
         spaceBetween: 32,
         slidesPerGroup: 2,
         speed: 1000,
+        loop: true,
+        autoplay: {
+            delay: 800,
+        },
         loopFillGroupWithBlank: true,
         navigation: {
             nextEl: ".swiper-button-next",
@@ -89,7 +92,11 @@ $(document).ready(function () {
         slidesPerView: 3,
         spaceBetween: 32,
         slidesPerGroup: 3,
+        loop: true,
         speed: 1400,
+        autoplay: {
+            delay: 800,
+        },
         loopFillGroupWithBlank: true,
         navigation: {
             nextEl: ".swiper-button-next",

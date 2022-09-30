@@ -31,9 +31,9 @@ $(document).ready(function () {
         fadeEffect: {
             crossFade: true
         },
-        autoplay: {
-            delay: 1300,
-        },
+        // autoplay: {
+        //     delay: 1300,
+        // },
         pagination: {
             el: ".swiper-pagination",
             clickable: true,

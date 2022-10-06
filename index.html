@@ -7,10 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zholobovych Brothers</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.png">
-    <link rel="stylesheet" href="css/lib/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/lib/bootstrap.min.css">
     <link rel="stylesheet" href="css/lib/fancybox.css">
     <link rel="stylesheet" href="css/lib/swiper-bundle.min.css">
-    <!-- <link rel="stylesheet" href="css/lib/baguetteBox.min.css"> -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -22,15 +21,22 @@
                     <span></span>
                 </div>
                 <nav class="header__menu">
-                    <img src="img/header_logo_mobile.svg" alt="logo" class="header__logo-mobile">
-                    <ul class="d-flex">
-                        <li><a class="header__menu-link active" href="#main">Головна</a></li>
-                        <li><a class="header__menu-link" href="#about">Про нас</a></li>
-                        <li><a class="header__menu-link" href="#catalog">Каталог</a></li>
-                        <li><a class="header__menu-link" href="#process">Процес</a></li>
-                        <li><a class="header__menu-link" href="#gallery">Портфоліо</a></li>
-                        <li><a class="header__menu-link" href="#contacts">Контакти</a></li>
-                    </ul>
+                    <div class="header__menu-wrap">
+                        <img src="img/header_logo_mobile.svg" alt="logo" class="header__logo-mobile">
+                        <ul class="d-flex">
+                            <li><a class="header__menu-link active" href="#main">Головна</a></li>
+                            <li><a class="header__menu-link" href="#about">Про нас</a></li>
+                            <li><a class="header__menu-link" href="#catalog">Каталог</a></li>
+                            <li><a class="header__menu-link" href="#process">Процес</a></li>
+                            <li><a class="header__menu-link" href="#gallery">Портфоліо</a></li>
+                            <li><a class="header__menu-link" href="#contacts">Контакти</a></li>
+                        </ul>
+                        <ul class="lang">
+                            <li class="active">Ua</li>
+                            <li>En</li>
+                        </ul>
+                    </div>
+
                 </nav>
             </div>
         </header>
@@ -215,7 +221,7 @@
                     <div class="catalog__inner">
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
-                                <a href="product-card.html" class="catalog__item">
+                                <a href="product-page.html" class="catalog__item">
                                     <div class="topproduct">
                                         top
                                     </div>
@@ -237,7 +243,7 @@
                             </div>
 
                             <div class="col-xl-3 col-md-6">
-                                <a href="product-card.html"  class="catalog__item">
+                                <a href="product-page.html" class="catalog__item">
                                     <div class="catalog__item-img">
                                         <img src="img/catalog_item2.png" alt="photo">
                                     </div>
@@ -256,7 +262,7 @@
                             </div>
 
                             <div class="col-xl-3 col-md-6">
-                                <a href="product-card.html"  class="catalog__item">
+                                <a href="product-page.html" class="catalog__item">
                                     <div class="topproduct">
                                         top
                                     </div>
@@ -278,7 +284,7 @@
                             </div>
 
                             <div class="col-xl-3 col-md-6">
-                                <a href="product-card.html"  class="catalog__item">
+                                <a href="product-page.html" class="catalog__item">
                                     <div class="catalog__item-img">
                                         <img src="img/catalog_item4.png" alt="photo">
                                     </div>
@@ -674,27 +680,27 @@
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                     <a data-fancybox="gallery" href="img/gallery2_big.jpg">
+                                    <a data-fancybox="gallery" href="img/gallery2_big.jpg">
                                         <img src="img/gallery2.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                     <a data-fancybox="gallery" href="img/gallery1_big.jpg">
+                                    <a data-fancybox="gallery" href="img/gallery1_big.jpg">
                                         <img src="img/gallery1.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                     <a data-fancybox="gallery" href="img/gallery2_big.jpg">
+                                    <a data-fancybox="gallery" href="img/gallery2_big.jpg">
                                         <img src="img/gallery2.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                     <a data-fancybox="gallery" href="img/gallery1_big.jpg">
+                                    <a data-fancybox="gallery" href="img/gallery1_big.jpg">
                                         <img src="img/gallery1.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                     <a data-fancybox="gallery" href="img/gallery2_big.jpg">
+                                    <a data-fancybox="gallery" href="img/gallery2_big.jpg">
                                         <img src="img/gallery2.jpg" alt="">
                                     </a>
                                 </div>
@@ -705,53 +711,53 @@
                         <div class="swiper gallery__slider-bottom">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                     <a data-fancybox="gallery"  href="img/videoplayback.mp4">
+                                    <a data-fancybox="gallery" href="img/videoplayback.mp4">
                                         <img src="img/gallery1_video_prewiev.jpg" alt="">
-                                    </a> 
+                                    </a>
                                 </div>
                                 <div class="swiper-slide">
-                                     <a data-fancybox="gallery" href="img/gallery4_big.jpg">
+                                    <a data-fancybox="gallery" href="img/gallery4_big.jpg">
                                         <img src="img/gallery4.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                     <a data-fancybox="gallery" href="img/gallery5_big.jpg">
+                                    <a data-fancybox="gallery" href="img/gallery5_big.jpg">
                                         <img src="img/gallery5.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="img/gallery3_big.jpg">
+                                    <a data-fancybox="gallery" href="img/gallery3_big.jpg">
                                         <img src="img/gallery3.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                     <a data-fancybox="gallery" href="img/gallery4_big.jpg">
+                                    <a data-fancybox="gallery" href="img/gallery4_big.jpg">
                                         <img src="img/gallery4.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                     <a data-fancybox="gallery" href="img/gallery5_big.jpg">
+                                    <a data-fancybox="gallery" href="img/gallery5_big.jpg">
                                         <img src="img/gallery5.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                     <a data-fancybox="gallery" href="img/gallery3_big.jpg">
+                                    <a data-fancybox="gallery" href="img/gallery3_big.jpg">
                                         <img src="img/gallery3.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                     <a data-fancybox="gallery" href="img/gallery4_big.jpg">
+                                    <a data-fancybox="gallery" href="img/gallery4_big.jpg">
                                         <img src="img/gallery4.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
-                                     <a data-fancybox="gallery" href="img/gallery5_big.jpg">
+                                    <a data-fancybox="gallery" href="img/gallery5_big.jpg">
                                         <img src="img/gallery5.jpg" alt="">
                                     </a>
                                 </div>
                             </div>
                         </div>
-                       
+
                     </div>
 
                 </div>
@@ -831,7 +837,7 @@
                         </div>
                     </div>
                 </div>
-            </section> 
+            </section>
 
         </main>
 
@@ -859,14 +865,13 @@
                     </div>
                 </div>
             </div>
-        </footer> 
+        </footer>
     </div>
 
 
     <script src="js/lib/jquery.js"></script>
     <script src="js/lib/fancybox.umd.js"></script>
     <script src="js/lib/swiper-bundle.min.js"></script>
-    <!-- <script src="js/lib/baguetteBox.min.js"></script> -->
     <script src="js/main.js"></script>
 
 

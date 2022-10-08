@@ -164,7 +164,7 @@ $(document).ready(function () {
         amount = 0;
 
     $("input[name='material']").change(function () {
-            material = $(this).data('number');
+            material = $(this).val();
             if($(this).hasClass('uncommon')){
                 $(".entry").addClass('disabled');
             } else {
@@ -174,12 +174,12 @@ $(document).ready(function () {
     });
 
     $("input[name='color']").change(function () {
-            color = $(this).data('number');
+            color = $(this).val();
         summ();
     });
 
     $("input[name='uzor']").change(function () {
-            uzor = $(this).data('number');
+            uzor = $(this).val();
         summ();
     });
 

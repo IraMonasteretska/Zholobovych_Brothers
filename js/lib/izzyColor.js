@@ -8,7 +8,6 @@ var copyHTML='<a href="http://www.izzywebsite.com/tools" target="_blank" style="
 function iColorShow(i,i2){
 
 	var eIC=jQuery("#"+i2).position();
-	var oldPos=jQuery("#"+i).css('position');
 	
 	jQuery("#"+i).css({'z-index':'9999','position':'relative'});
 	jQuery("#izzyColor").css({'top':eIC.top+(jQuery("#"+i).outerHeight())+"px",'left':(eIC.left)+"px",'position':'absolute'}).fadeIn("fast");

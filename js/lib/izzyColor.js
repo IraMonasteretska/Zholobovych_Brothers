@@ -21,7 +21,7 @@ function iColorShow(i,i2){
 	jQuery(".izzyColors a, #colorPreview").unbind().mouseover(function(){
 		var izzyColorText=jQuery(this).attr("rel");
 		var izzyColor=jQuery(this).attr("data-clr");
-		jQuery(".colortext").html(izzyColorText);
+		jQuery(".colortext").val(izzyColorText);
 		jQuery(".rallabel").css('background','#'+izzyColor);
 		jQuery("#colorPreview").css('background','#'+izzyColor).attr("data-clr",izzyColor);
 		jQuery("#"+i).val('#'+izzyColor).css("background",'#'+izzyColor);

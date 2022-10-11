@@ -157,6 +157,7 @@ $(document).ready(function () {
     });
 
 
+
     // calculate 
     var material = 1000,
         color = 500,
@@ -164,22 +165,24 @@ $(document).ready(function () {
         amount = 0;
 
     $("input[name='material']").change(function () {
-            material = $(this).data('price');
-            if($(this).hasClass('uncommon')){
-                $(".entry").addClass('disabled');
-            } else {
-                $(".entry").removeClass('disabled');
-            }
+        material = $(this).data('price');
+        $('#material-hide').val($(this).val());
+        if ($(this).hasClass('uncommon')) {
+            $(".entry").addClass('disabled');
+        } else {
+            $(".entry").removeClass('disabled');
+        }
         summ();
     });
 
     $("input[name='color']").change(function () {
-            color = $(this).data('price');
+        color = $(this).data('price');
         summ();
     });
 
     $("input[name='uzor']").change(function () {
-            uzor = $(this).data('price');
+        uzor = $(this).data('price');
+        $('#uzor-hide').val($(this).val());
         summ();
     });
 
@@ -190,7 +193,35 @@ $(document).ready(function () {
         uzor = Number(uzor);
         amount = Number($('.product__form-counter').find('input').val());
         $(".price p").text((material + color + uzor) * amount);
+        $('#price-hide').val($('.price p'));
     }
+
+
+    // send data to hidden inputs
+    $('.product__form-btn').on('click', function(){
+        $('#amount-hide').val($('.product__form-counter').find('input').val());
+
+        $("input[name='color']:checked").each(function () {
+            if($(this).hasClass('izzyColor')){
+                    $('#color-hide').val('RAL' + $('.colortext').val());
+            } else {
+                $('#color-hide').val($(this).val());
+            }
+        });
+
+    });
+
+
+    // change color product images
+    $('.tab').on('click', function () {
+        console.log('click tab')
+		var dataClass = $(this).attr('data-tab');
+		$('.tab-item').removeClass('active-tab').hide();
+		$('.tab').removeClass('active');
+		$(this).addClass('active');
+		$('.' + dataClass).addClass('active-tab').fadeIn();
+		return false;
+	});
 
 
 });

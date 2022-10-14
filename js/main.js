@@ -1,6 +1,8 @@
 
 $(document).ready(function () {
 
+
+
     // header menu active
     $('.header__menu-link').on('click', function () {
         $('.header__menu-link').removeClass('active');
@@ -113,9 +115,10 @@ $(document).ready(function () {
     });
 
     // gallery popup
-    Fancybox.bind('[data-fancybox="gallery a"]', {
+    Fancybox.bind('[data-fancybox="gallery"]', {
         infinite: false
     });
+
 
     //  slider product image
     var smallImage = new Swiper(".smallImage", {
@@ -123,11 +126,21 @@ $(document).ready(function () {
         direction: "vertical"
     });
     var bigImage = new Swiper(".bigImage", {
+        slidesPerView: 1,
         effect: "fade",
         thumbs: {
             swiper: smallImage,
         },
     });
+
+    // product gallery popup
+    $('.active-tab').on('click', function () {
+        var classGallery = $(this).attr('data-imgcolor');
+        Fancybox.bind(`[data-fancybox="${classGallery}"]`, {
+            infinite: false
+        });
+    });
+
 
     //  popup product card
     $('.popupbtn').on('click', function (e) {
@@ -161,28 +174,30 @@ $(document).ready(function () {
     // calculate 
     var material = 1000,
         color = 500,
-        uzor = 0,
+        pattern = 0,
         amount = 0;
 
     $("input[name='material']").change(function () {
         material = $(this).data('price');
+        console.log(material);
         $('#material-hide').val($(this).val());
-        if ($(this).hasClass('uncommon')) {
-            $(".entry").addClass('disabled');
-        } else {
-            $(".entry").removeClass('disabled');
-        }
+        var nullId = $(this).attr('data-null');
+        $(".input-field").removeClass('disabled');
+        $('#' + nullId).parent('.input-field').addClass('disabled');
         summ();
     });
 
     $("input[name='color']").change(function () {
+        console.log("click");
         color = $(this).data('price');
+        console.log(color);
         summ();
     });
 
-    $("input[name='uzor']").change(function () {
-        uzor = $(this).data('price');
-        $('#uzor-hide').val($(this).val());
+    $("input[name='pattern']").change(function () {
+        pattern = $(this).data('price');
+        console.log(pattern);
+        $('#pattern-hide').val($(this).val());
         summ();
     });
 
@@ -190,20 +205,20 @@ $(document).ready(function () {
     function summ() {
         material = Number(material);
         color = Number(color);
-        uzor = Number(uzor);
+        pattern = Number(pattern);
         amount = Number($('.product__form-counter').find('input').val());
-        $(".price p").text((material + color + uzor) * amount);
+        $(".price p").text((material + color + pattern) * amount);
         $('#price-hide').val($('.price p'));
     }
 
 
     // send data to hidden inputs
-    $('.product__form-btn').on('click', function(){
+    $('.product__form-btn').on('click', function () {
         $('#amount-hide').val($('.product__form-counter').find('input').val());
 
         $("input[name='color']:checked").each(function () {
-            if($(this).hasClass('izzyColor')){
-                    $('#color-hide').val('RAL' + $('.colortext').val());
+            if ($(this).hasClass('izzyColor')) {
+                $('#color-hide').val('RAL' + $('.colortext').val());
             } else {
                 $('#color-hide').val($(this).val());
             }
@@ -213,15 +228,36 @@ $(document).ready(function () {
 
 
     // change color product images
-    $('.tab').on('click', function () {
-        console.log('click tab')
-		var dataClass = $(this).attr('data-tab');
-		$('.tab-item').removeClass('active-tab').hide();
-		$('.tab').removeClass('active');
-		$(this).addClass('active');
-		$('.' + dataClass).addClass('active-tab').fadeIn();
-		return false;
-	});
 
+    $(".tab").first().addClass('active');
+    $(".tab-item").first().addClass('active-tab');
+
+    $('.tab').on('click', function () {
+        var dataClass = $(this).attr('data-tab');
+        $('.tab-item').removeClass('active-tab').hide();
+        $('.tab').removeClass('active');
+        $(this).addClass('active');
+        $('.' + dataClass).addClass('active-tab').fadeIn(200);
+        createSlider();
+    });
+
+
+
+
+
+    // create product slider classes
+    function createSlider() {
+    $(".product__img").each(function() {
+    if($(this).hasClass("active-tab")){
+        $(this).find(".small").addClass("smallImage");
+        $(this).find(".big").addClass("bigImage");
+    } else{
+        $(this).find(".small").remove("smallImage");
+        $(this).find(".big").remove("bigImage");
+    }
+    });
+        console.log('create done');
+    }
+    createSlider();
 
 });

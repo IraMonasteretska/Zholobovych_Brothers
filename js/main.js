@@ -120,18 +120,57 @@ $(document).ready(function () {
     });
 
 
+
+    // ---------- PRODUCT CARD ---------- //
+
+    // change color product images
+
+    $(".tab").first().addClass('active');
+    $(".tab-item").first().addClass('active-tab');
+
+
+    $('.tab').on('click', function () {
+        var dataClass = $(this).attr('data-tab');
+        $('.tab-item').removeClass('active-tab').hide();
+        $('.tab').removeClass('active');
+        $(this).addClass('active');
+        $('.' + dataClass).addClass('active-tab').fadeIn(200);
+        createSlider();
+        sliderProduct()
+    });
+
+    // create product slider classes
+    function createSlider() {
+        $(".tab-item").each(function () {
+            if ($(this).hasClass("active-tab")) {
+                $(this).find(".small").addClass("smallImage");
+                $(this).find(".big").addClass("bigImage");
+            } else {
+                $(this).find(".small").removeClass("smallImage");
+                $(this).find(".big").removeClass("bigImage");
+            }
+        });
+    }
+    createSlider();
+
+
     //  slider product image
-    var smallImage = new Swiper(".smallImage", {
-        slidesPerView: 4,
-        direction: "vertical"
-    });
-    var bigImage = new Swiper(".bigImage", {
-        slidesPerView: 1,
-        effect: "fade",
-        thumbs: {
-            swiper: smallImage,
-        },
-    });
+
+    function sliderProduct() {
+        var smallImage = new Swiper(".smallImage", {
+            slidesPerView: 4,
+            direction: "vertical"
+        });
+        var bigImage = new Swiper(".bigImage", {
+            slidesPerView: 1,
+            effect: "fade",
+            thumbs: {
+                swiper: smallImage,
+            }
+        });
+    }
+    sliderProduct();
+
 
     // product gallery popup
     $('.active-tab').on('click', function () {
@@ -179,7 +218,6 @@ $(document).ready(function () {
 
     $("input[name='material']").change(function () {
         material = $(this).data('price');
-        console.log(material);
         $('#material-hide').val($(this).val());
         var nullId = $(this).attr('data-null');
         $(".input-field").removeClass('disabled');
@@ -188,15 +226,12 @@ $(document).ready(function () {
     });
 
     $("input[name='color']").change(function () {
-        console.log("click");
         color = $(this).data('price');
-        console.log(color);
         summ();
     });
 
     $("input[name='pattern']").change(function () {
         pattern = $(this).data('price');
-        console.log(pattern);
         $('#pattern-hide').val($(this).val());
         summ();
     });
@@ -227,37 +262,5 @@ $(document).ready(function () {
     });
 
 
-    // change color product images
-
-    $(".tab").first().addClass('active');
-    $(".tab-item").first().addClass('active-tab');
-
-    $('.tab').on('click', function () {
-        var dataClass = $(this).attr('data-tab');
-        $('.tab-item').removeClass('active-tab').hide();
-        $('.tab').removeClass('active');
-        $(this).addClass('active');
-        $('.' + dataClass).addClass('active-tab').fadeIn(200);
-        createSlider();
-    });
-
-
-
-
-
-    // create product slider classes
-    function createSlider() {
-    $(".product__img").each(function() {
-    if($(this).hasClass("active-tab")){
-        $(this).find(".small").addClass("smallImage");
-        $(this).find(".big").addClass("bigImage");
-    } else{
-        $(this).find(".small").remove("smallImage");
-        $(this).find(".big").remove("bigImage");
-    }
-    });
-        console.log('create done');
-    }
-    createSlider();
 
 });

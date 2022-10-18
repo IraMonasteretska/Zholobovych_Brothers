@@ -208,20 +208,28 @@ $(document).ready(function () {
         return false;
     });
 
-
+    // hides the missing color
+    function hideColor(colorName) {
+        if (colorName.length > 0) {
+            var nullArr = colorName.split(" ");
+            $(".input-field").removeClass('disabled');
+            for (var i = 0; i <= nullArr.length; i++) {
+                $('#' + nullArr[i]).parent('.input-field').addClass('disabled');
+            }
+        } else {
+            $(".input-field").removeClass('disabled');
+        }
+    }
 
     // calculate 
-    var material = 1000,
-        color = 500,
-        pattern = 0,
+    var material = 0,
+        color = 0,
         amount = 0;
 
     $("input[name='material']").change(function () {
         material = $(this).data('price');
-        $('#material-hide').val($(this).val());
         var nullId = $(this).attr('data-null');
-        $(".input-field").removeClass('disabled');
-        $('#' + nullId).parent('.input-field').addClass('disabled');
+        hideColor(nullId);
         summ();
     });
 
@@ -230,37 +238,27 @@ $(document).ready(function () {
         summ();
     });
 
-    $("input[name='pattern']").change(function () {
-        pattern = $(this).data('price');
-        $('#pattern-hide').val($(this).val());
-        summ();
-    });
-
-
     function summ() {
         material = Number(material);
         color = Number(color);
-        pattern = Number(pattern);
         amount = Number($('.product__form-counter').find('input').val());
-        $(".price p").text((material + color + pattern) * amount);
-        $('#price-hide').val($('.price p'));
+        $(".price p").text((material + color ) * amount);
     }
-
 
     // send data to hidden inputs
     $('.product__form-btn').on('click', function () {
+        $('#name-hide').val($('.product__form-title').text());
+        $('#material-hide').val($("input[name='material']:checked").val());
+        $('#color-hide').val($("input[name='color']:checked").val());
+        $('#price-hide').val($('.price p').text());
         $('#amount-hide').val($('.product__form-counter').find('input').val());
-
-        $("input[name='color']:checked").each(function () {
-            if ($(this).hasClass('izzyColor')) {
-                $('#color-hide').val('RAL' + $('.colortext').val());
-            } else {
-                $('#color-hide').val($(this).val());
-            }
-        });
-
     });
 
+        // click hidden btn
+        $('.ralform__btn').on('click', function () {
+            $('.ralform__btn--hidden').trigger('click');
+        });
+    
 
 
 });

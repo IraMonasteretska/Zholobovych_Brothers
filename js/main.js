@@ -29,16 +29,9 @@ $(document).ready(function () {
     // heroimage slider
     var swiper = new Swiper(".heroimage__slider", {
         effect: "fade",
-        // autoplay: {
-        //     delay: 800,
-        // },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-            renderBullet: function (index, className) {
-                return '<span class="' + className + '">' + '0' + (index + 1) + "</span>";
-            },
-        },
+        autoplay: {
+            delay: 300,
+        }
     });
 
     // accordeon 

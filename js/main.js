@@ -29,9 +29,9 @@ $(document).ready(function () {
     // heroimage slider
     var swiper = new Swiper(".heroimage__slider", {
         effect: "fade",
-        autoplay: {
-            delay: 800,
-        },
+        // autoplay: {
+        //     delay: 800,
+        // },
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
@@ -242,7 +242,7 @@ $(document).ready(function () {
         material = Number(material);
         color = Number(color);
         amount = Number($('.product__form-counter').find('input').val());
-        $(".price p").text((material + color ) * amount);
+        $(".price p").text((material + color) * amount);
     }
 
     // send data to hidden inputs
@@ -254,11 +254,20 @@ $(document).ready(function () {
         $('#amount-hide').val($('.product__form-counter').find('input').val());
     });
 
-        // click hidden btn
-        $('.ralform__btn').on('click', function () {
-            $('.ralform__btn--hidden').trigger('click');
-        });
-    
+    // click hidden btn
+    $('.ralform__btn').on('click', function () {
+        $('.ralform__btn--hidden').trigger('click');
+    });
+
+    if ($('.zoomimg').length) {
+        $(".zoomimg").jqZoom({
+            selectorWidth: 70,
+            selectorHeight: 70,
+            viewerWidth: 500,
+            viewerHeight: 400
+          });
+    }
+
 
 
 });
